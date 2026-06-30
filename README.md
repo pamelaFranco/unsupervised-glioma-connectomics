@@ -45,7 +45,7 @@ This repository contains the official **unsupervised pattern recognition framewo
 
 <p align="left">
   <strong>Rodrigo Salas</strong> *(Corresponding Author)* <a href="https://orcid.org/0000-0002-0350-6811"><img src="https://img.shields.io/badge/ORCID-0000--0002--0350--6811-A6CE39?logo=orcid&logoColor=white&style=flat-square" height="16"></a><br>
-  <small>• Biomedical Engineering School, Universidad de Valparaíso.<br>• Millennium Institute for Intelligent Healthcare Engineering (iHEALTH).<br>• Center of Interdisciplinary Biomedical and Engineering Research for Health (MEDING).<br>📧 Email: rodrigo.salas@uv.cl</small>
+  <small>• Biomedical Engineering School, Universidad de Valparaíso.<br>• Millennium Institute for Intelligent Healthcare Engineering (iHEALTH).<br>• Center of Interdisciplinary Biomedical and Engineering Research for Health (MEDING).<br> Email: rodrigo.salas@uv.cl</small>
 </p>
 
 ---
@@ -74,6 +74,8 @@ The complete pattern recognition pipeline is structured into five core phases:
 ---
 
 ## Repository Structure
+
+```
 
 ├── Codes/
 │   ├── ML_code.py                                     # Main Python code: Z-score standardization, UMAP projection, and Spectral Clustering.
