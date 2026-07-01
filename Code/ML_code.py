@@ -8,9 +8,7 @@ from sklearn.cluster import SpectralClustering
 import umap
 from scipy.stats import mannwhitneyu, kruskal, chi2_contingency
 
-# ==========================================
-# SCIENTIFIC PLOTTING CONFIGURATION (LaTeX)
-# ==========================================
+
 plt.rcParams['text.usetex'] = True
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['axes.labelsize'] = 12
@@ -18,9 +16,8 @@ plt.rcParams['axes.titlesize'] = 13
 plt.rcParams['xtick.labelsize'] = 11
 plt.rcParams['ytick.labelsize'] = 11
 
-# ==========================================
+###############################################################################
 # STEP 0: DATA LOADING AND CLINICAL MERGE
-# ==========================================
 connectomics_file = "dataset_conectomicas_with_patient_details.csv"
 df_conn = pd.read_csv(connectomics_file)
 
@@ -80,9 +77,9 @@ X = X.fillna(X.mean())
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-# ==========================================
+###############################################################################
 # STEP 1 & 2: MANIFOLD LEARNING & SUBPHENOTYPES
-# ==========================================
+
 reducer = umap.UMAP(n_neighbors=10, min_dist=0.1, n_components=2, random_state=42)
 X_umap = reducer.fit_transform(X_scaled)
 
@@ -109,9 +106,9 @@ plt.tight_layout()
 plt.savefig('figure_umap_projection.png', dpi=300, format='png')
 plt.show()
 
-# ========================================================
+###############################################################################
 # ADVANCED ANALYSIS 1: CONNECTOMIC VULNERABILITY SIMULATION
-# ========================================================
+
 print("\n--- Connectomic Resilience Analysis ---")
 left_hemi_efficiency = df[df['Tumor_Hemisphere'] == 0]['Global_Efficiency'].values
 right_hemi_efficiency = df[df['Tumor_Hemisphere'] == 1]['Global_Efficiency'].values
@@ -136,9 +133,9 @@ plt.tight_layout()
 plt.savefig('figure_network_attack_simulation.png', dpi=300, format='png')
 plt.show()
 
-# ========================================================
+###############################################################################
 # ADVANCED ANALYSIS 2: LOBAR INFILTRATION VS CORE INTEGRITY
-# ========================================================
+
 print("\n--- Lobar Metric Architecture Attenuation ---")
 core_tracts = [col for col in X.columns if 'corpus_callosum' in col.lower() and 'Strength' in col]
 if core_tracts:
@@ -174,9 +171,9 @@ if core_tracts:
         plt.savefig('figure_lobar_core_integrity.png', dpi=300, format='png')
         plt.show()
 
-# ========================================================
+###############################################################################
 # DEMOGRAPHIC AND LOCALIZATION COHORT VALIDATION
-# ========================================================
+
 print("\n--- Demographic Crosstabulations ---")
 for var in ['Sex', 'Tumor_Hemisphere']:
     if var in df.columns:
